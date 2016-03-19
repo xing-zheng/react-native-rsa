@@ -20,14 +20,12 @@ describe('RSA Key', function () {
 
   it('encrypt decrypt', function () {
     var rsa = new RSAKey();
-    var publicKeyObj = JSON.parse(publicKey);
-    rsa.setPublic(publicKeyObj.n, publicKeyObj.e);
+    rsa.setPublicString(publicKey);
     var originText = 'sample String Value';
     var encrypted = rsa.encrypt(originText);
 
     // start decrypt
-    var privateKeyObj = JSON.parse(privateKey);
-    rsa.setPrivateEx(privateKeyObj);
+    rsa.setPrivateString(privateKey);
     var decrypted = rsa.decrypt(encrypted);
     expect(decrypted).toEqual(originText);
   });
