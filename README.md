@@ -48,4 +48,4 @@ This lib uses Tom Wu's jsbn http://www-cs-students.stanford.edu/~tjw/jsbn/
 ## Known issues:
 * RSA encryption/decryption with this lib doesn't work well with other RSA libs (such as Node RSA). I have to use the same lib on both client and server to make it work
 * In the future, consider to fix this issue and let it work with standard openssl lib.
-* Node js may complain about 'window' is not defined. I just commented out the 'window' related codes in rng.js and it worked. (It look like just adding some extra randomneed. Should still work without that part)
+* Node js may complain about 'window' is not defined. I just commented out the 'window' related codes in rng.js and it worked. (It look like just adding some extra randomness. Should still work without that part)
