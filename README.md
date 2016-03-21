@@ -16,7 +16,7 @@ Generate RSA keys
 ```
 var RSAKey = require('react-native-rsa');
 const bits = 1024;
-const exponent = '10001'; // must be a string
+const exponent = '10001'; // must be a string. This is hex string. decimal = 65537
 var rsa = new RSAKey();
 var r = rsa.generate(bits, exponent);
 var publicKey = rsa.RSAGetPublicString(); // return json encoded string
@@ -38,14 +38,12 @@ rsa.setPrivateString(privateKey);
 var decrypted = rsa.decrypt(encrypted); // decrypted == originText
 ```
 
+Tested works with ursa in nodejs (with ursa padding set to PKCS1).
 
 ## Credits
 This lib uses Tom Wu's jsbn http://www-cs-students.stanford.edu/~tjw/jsbn/
 
-
-## TODO: Still missing export to DER/PEM format
+## TODO: Still missing export to PEM format
 
 ## Known issues:
-* RSA encryption/decryption with this lib doesn't work well with other RSA libs (such as Node RSA). I have to use the same lib on both client and server to make it work
-* In the future, consider to fix this issue and let it work with standard openssl lib.
-* Node js may complain about 'window' is not defined. I just commented out the 'window' related codes in rng.js and it worked. (It look like just adding some extra randomness. Should still work without that part)
+* Node js may complain about 'window' is not defined. I just commented out the 'window' related codes in rng.js and it worked. (It look like just adding some extra randomness. Should still work without that part). I don't recommend using this lib in nodejs. I use ursa or node-rsa lib for nodejs.
