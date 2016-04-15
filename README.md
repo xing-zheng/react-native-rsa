@@ -18,9 +18,9 @@ var RSAKey = require('react-native-rsa');
 const bits = 1024;
 const exponent = '10001'; // must be a string. This is hex string. decimal = 65537
 var rsa = new RSAKey();
-var r = rsa.generate(bits, exponent);
-var publicKey = rsa.RSAGetPublicString(); // return json encoded string
-var privateKey = rsa.RSAGetPrivateString(); // return json encoded string
+rsa.generate(bits, exponent);
+var publicKey = rsa.getPublicString(); // return json encoded string
+var privateKey = rsa.getPrivateString(); // return json encoded string
 ```
 
 Encrypt
